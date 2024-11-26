@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicants_document_', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('applicant_id')->constrained('applicants')->onDelete('cascade');
-            $table->string('document', 255);
+        Schema::create('countries', function (Blueprint $table) {
+            $table->id();   
+            $table->string('country_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applicants_document_');
+        Schema::dropIfExists('countries');
     }
 };

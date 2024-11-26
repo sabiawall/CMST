@@ -14,15 +14,15 @@ return new class extends Migration
         Schema::create('applicant_academics', function (Blueprint $table) {
             $table->id();
             $table->foreignId('applicant_id')->constrained('applicants')->onDelete('cascade');
-            $table->string('institution', 150);
-            $table->string('degree_title', 100);
-            $table->string('degree_level', 50);
+            $table->string('institution');
+            $table->string('degree_title');
+            $table->string('degree_level');
             $table->year('passed_year');
             $table->date('course_start')->nullable();
             $table->date('course_end')->nullable();
-            $table->string('subject', 100);
-            $table->string('result_type', 50);
-            $table->string('result_store', 50);
+            $table->string('subject');
+            $table->string('result_type');
+            $table->string('result_store');
             $table->timestamps();
         });
     }

@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('applicants_score', function (Blueprint $table) {
+        Schema::create('applicant_documents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('applicant_id')->constrained('applicants')->onDelete('cascade');
-            $table->string('test_title', 100);
-            $table->decimal('overall_score', 5, 2);
-            $table->decimal('listening', 5, 2)->nullable();
-            $table->decimal('reading', 5, 2)->nullable();
-            $table->decimal('writing', 5, 2)->nullable();
-            $table->decimal('speaking', 5, 2)->nullable();
-            $table->date('attended_date');
+            $table->string('document');
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('applicants_score');
+        Schema::dropIfExists('applicant_documents');
     }
 };
